@@ -1,4 +1,4 @@
-const API_URL = 'https://sistema-riego-inteligente-production.up.railway.app/api/v1/lecturas/estado';
+const API_URL = 'https://sistema-riego-inteligente.onrender.com/api/v1/lecturas/estado';
 
 async function obtenerEstado() {
     try {
@@ -39,17 +39,14 @@ function actualizarInterfaz(data) {
 
     const humedad = data.humedad;
 
-    // Mostrar humedad
     document.getElementById('humedad-val').innerText =
         humedad;
 
-    // Barra de humedad
     const humedadBar =
         document.getElementById('humedad-bar');
 
     humedadBar.style.width = `${humedad}%`;
 
-    // Cambiar color según humedad
     if (humedad <= 40) {
 
         humedadBar.className =
@@ -62,7 +59,6 @@ function actualizarInterfaz(data) {
     }
 
 
-    // Estado de la bomba
     const statusBadge =
         document.getElementById('bomba-status');
 
@@ -93,8 +89,6 @@ function actualizarInterfaz(data) {
             'Humedad óptima (> 40%). Sistema en espera.';
     }
 
-
-    // Fecha
     if (data.fechaRegistro) {
 
         const fecha =
@@ -106,8 +100,6 @@ function actualizarInterfaz(data) {
 }
 
 
-// Primera consulta
 obtenerEstado();
 
-// Actualizar cada 3 segundos
 setInterval(obtenerEstado, 3000);
