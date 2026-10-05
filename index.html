@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Riego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row mb-4 text-center">
+            <div class="col">
+                <h1 class="fw-bold text-success"><i class="bi bi-flower1"></i>Riego Inteligente</h1>
+                <p class="text-muted">Monitoreo en tiempo</p>
+            </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Humedad -->
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body p-4 text-center">
+                        <span class="text-uppercase fw-semibold text-muted small d-block mb-2">Humedad</span>
+                        <div class="display-3 fw-bold my-2 text-dark">
+                            <span id="humedad-val">--</span><small class="fs-4">%</small>
+                        </div>
+                        <div class="progress mt-3 rounded-pill" style="height: 12px;">
+                            <div id="humedad-bar" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bomba / LED -->
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card-body p-4 text-center">
+                        <span class="text-uppercase fw-semibold text-muted small d-block mb-2">Estado de la Bomba</span>
+                        <div class="my-3">
+                            <span id="bomba-status" class="badge rounded-pill bg-secondary px-4 py-2 fs-5">
+                                ESPERANDO DATOS...
+                            </span>
+                        </div>
+                        <p id="bomba-texto" class="text-muted small mb-0">Esperando respuesta del script puente...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 text-center">
+            <div class="col text-muted small">
+                <i class="bi bi-clock-history me-1"></i> Última lectura: <span id="fecha-val" class="fw-semibold">--</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
